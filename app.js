@@ -25,12 +25,12 @@ app.get("/checkouts", async (req, res) => {
 			message } = req.body;
 	const date = new Date().toISOString(); // post request to insert new data 
   
-	db.query(`INSERT INTO checkouts (fullname,email,phone_number,reason,messages) VALUES ($1,$2,$3,$4,$5)`,[fullname, email, phone_number, reason, message])
+	db.query(`INSERT INTO checkouts (fullname,email,phone_number,reason,message) VALUES ($1,$2,$3,$4,$5)`,[fullname, email, phone_number, reason, message])
 	res.status(201).json({ fullname, email, phone_number, reason, message });
 	  
   }); // to insert values to the query
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => 
 {
 	console.log('Server is running on port ${PORT}');
