@@ -19,14 +19,14 @@ app.get("/checkouts", async (req, res) => {
   app.post("/checkout", (req, res) => {
 	console.log(new Date());
 	const { fullname, 
-		    email, 
+		    country, 
 			phone_number, 
 			reason, 
 			message } = req.body;
 	const date = new Date().toISOString(); // post request to insert new data 
   
-	db.query(`INSERT INTO checkouts (fullname,email,phone_number,reason,message) VALUES ($1,$2,$3,$4,$5)`,[fullname, email, phone_number, reason, message])
-	res.status(201).json({ fullname, email, phone_number, reason, message });
+	db.query(`INSERT INTO checkouts (fullname,country,phone_number,reason,message) VALUES ($1,$2,$3,$4,$5)`,[fullname, country, phone_number, reason, message])
+	res.status(201).json({ fullname, country, phone_number, reason, message });
 	  
   }); // to insert values to the query
 
